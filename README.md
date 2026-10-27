@@ -192,7 +192,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/uninstall.ps1 -Remov
 node scripts/build-kit.mjs          # assemble dist/pixel-preset-kit
 node scripts/build-kit.mjs --zip    # + dist/pixel-preset-kit.zip
 node scripts/notices.mjs            # regenerate third-party licence list
+npm test                            # = tests/install-roundtrip.ps1
 ```
+
+`tests/install-roundtrip.ps1` runs install → install (must upgrade in place) → uninstall against a
+**fake `%USERPROFILE%`**, and asserts the patch ends up byte-identical to the fixture. It never touches
+a real profile.
 
 Rebuilding the MCP bundle after editing `mcp/src/index.ts`:
 

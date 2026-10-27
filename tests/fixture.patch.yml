@@ -1,0 +1,26 @@
+# A minimal, valid DSH profile patch used by tests/install-roundtrip.ps1.
+# Shape matters more than content: a list of loader entries with `- insert:` blocks,
+# comments between them, and no trailing newline assumptions.
+# 测试用的最小 profile 补丁：只要形状对（列表 + insert 块 + 注释）就够，内容无意义。
+- insert:
+    - id: demo-persona
+      name: '@deepseek-ai/dsh-persona'
+      config:
+        prefix: A demo preset used only by the installer tests.
+
+- insert:
+    - id: preset-demo
+      name: '@deepseek-ai/dsh-agent-preset'
+      config:
+        id: demo
+        name: Demo
+        description: A demo preset used only by the installer tests.
+        order: 90
+        plugins:
+          - id: tool-fs
+            name: '@deepseek-ai/dsh-tool-fs'
+          # an inline comment inside the list, to make sure nothing depends on comments
+          - id: tool-todo
+            name: '@deepseek-ai/dsh-tool-todo'
+            config:
+              allowParallelInProgress: true

@@ -35,7 +35,9 @@ Please include:
 node scripts/build-kit.mjs          # assemble dist/pixel-preset-kit (runs npm ci in mcp/)
 node scripts/build-kit.mjs --zip    # + dist/pixel-preset-kit.zip
 node scripts/notices.mjs            # regenerate THIRD-PARTY-NOTICES.md
-cd mcp; npm install; npm run build  # rebuild the MCP bundle after editing mcp/src/index.ts
+npm test                            # installer round-trip against a fake %USERPROFILE%
+cd mcp; npm install --ignore-scripts; node node_modules/typescript/bin/tsc -p tsconfig.json
+                                    # rebuild the MCP bundle after editing mcp/src/index.ts
 ```
 
 Before opening a PR:

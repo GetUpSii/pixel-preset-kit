@@ -10,6 +10,7 @@
   "scripts": {
     "build": "node scripts/build-kit.mjs",
     "dist": "node scripts/build-kit.mjs --zip",
-    "notices": "node scripts/notices.mjs"
+    "notices": "node scripts/notices.mjs",
+    "test": "powershell -NoProfile -ExecutionPolicy Bypass -File tests/install-roundtrip.ps1"
   }
 }

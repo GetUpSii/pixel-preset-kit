@@ -202,7 +202,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/uninstall.ps1 -Remov
 node scripts/build-kit.mjs          # 组装 dist/pixel-preset-kit
 node scripts/build-kit.mjs --zip    # 再压成 dist/pixel-preset-kit.zip
 node scripts/notices.mjs            # 重新生成第三方许可清单
+npm test                            # = tests/install-roundtrip.ps1，装机往返测试
 ```
+
+`tests/install-roundtrip.ps1` 用**假 `%USERPROFILE%`** 跑「安装 → 再装（应原地升级）→ 卸载」，
+断言补丁最终与 fixture **逐字节相同**；全程不碰真实 profile。
 
 改 MCP 源码（`mcp/src/index.ts`）后重建产物：
 
