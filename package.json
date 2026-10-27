@@ -1,0 +1,15 @@
+{
+  "name": "pixel-preset-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An Aseprite pixel-art agent preset plus its MCP toolbox for DeepSeek Harness (DSH)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build-kit.mjs",
+    "dist": "node scripts/build-kit.mjs --zip",
+    "notices": "node scripts/notices.mjs"
+  }
+}

@@ -1,0 +1,18 @@
+# build output + release artifacts
+dist/
+*.zip
+
+# dependencies installed by scripts/build-kit.mjs (npm ci --omit=dev)
+node_modules/
+mcp/node_modules/
+.npm-cache/
+
+# local scratch
+tmp/
+*.bak
+*.bak-*
+*.log
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
